@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Home from './pages/home'
+import List from './pages/list'
+import Info from './pages/info'
+import Profile from './pages/profile'
+import HKLayout from './components/HKLayout'
+export default class App extends Component {
+  render () {
+    return (
+      <Fragment>
+        <Router>
+          <Route path='/' exact render={(props) => <HKLayout><Home {...props}></Home></HKLayout>}></Route>
+          <Route path='/list' exact render={(props) => <HKLayout> <List {...props}></List></HKLayout>}></Route>
+          <Route path='/info' exact render={(props) => <HKLayout>< Info {...props}></Info></HKLayout>}></Route>
+          <Route path='/profile' exact render={(props) => <HKLayout> <Profile {...props}></Profile></HKLayout>}></Route>
+        </Router>
+
+      </Fragment>
+    )
+  }
+
 }
-
-export default App;
