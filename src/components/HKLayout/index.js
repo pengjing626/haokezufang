@@ -16,7 +16,7 @@ class HKLayout extends React.Component {
           unselectedTintColor="#949494"
           tintColor="#4cc8b4"
           barTintColor="white"
-        // hidden={this.state.hidden}
+
         >
           <TabBar.Item
             title="首页"
